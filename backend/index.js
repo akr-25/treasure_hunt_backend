@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const morgan = require("morgan");
 const InitiateMongoServer = require("./db");
 
 InitiateMongoServer();
@@ -15,25 +16,27 @@ const leaderBoardRouter = require("./router/leaderBoard");
 
 const app = express();
 
-// var allowedOrigins = [
-//   // ORIGIN_URLs
-// ];
+var allowedOrigins = [
+  "http://localhost:8080"
+  // ORIGIN_URLs
+];
 
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (!origin) return callback(null, true);
-//       if (allowedOrigins.indexOf(origin) === -1) {
-//         var msg =
-//           "The CORS policy for this site does not " +
-//           "allow access from the specified Origin.";
-//         return callback(new Error(msg), false);
-//       }
-//       return callback(null, true);
-//     },
-//   })
-// );
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        var msg =
+          "The CORS policy for this site does not " +
+          "allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 
+app.use(morgan("common"));
 app.use(express.json());
 
 app.use("/health", healthRouter);
