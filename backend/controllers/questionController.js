@@ -25,6 +25,7 @@ exports.getQuestion = async function (req, res) {
           .json({ status: 404, message: "No data found", result: null })
           .end();
       else {
+        console.log(result, "success");
         await questions
           .findOne({ level: result.highestLevelPlayed + 1 })
           .select({ level: 1, question: 1, image: 1 })

@@ -133,7 +133,6 @@ export default {
           "Content-Type": "Application/json",
         },
       };
-
       await axios
         // Replace BACKEND_URL wit the backend url
         .get(`http://localhost:5000/questions/${this.uId}`, config)

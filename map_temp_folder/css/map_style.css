@@ -1,0 +1,103 @@
+.iitg_map{
+	height: 720px;
+	width: 1050px;
+	overflow: hidden;
+}
+#viewport, #viewport2, .mapwrapper {
+	width: 644px;
+	height: 700px;
+	cursor: move;
+	overflow: hidden;
+}
+.box_class {
+	position: relative;
+	border: 2px solid brown ;
+}
+.mapwrapper {
+	position: relative;
+	border: 1px solid;
+	box-shadow: 10px 10px 5px #888888;
+}
+.map_help {
+	position: relative;
+	height: 0px;
+	top:30px;
+	left:700px;
+}
+.print_map {
+	position:relative;
+	top: -390px;
+	left: 860px;
+}
+.pointer_class {
+	position:relative;
+	top: -400px;
+	left:700px;
+	background-image:url('../images/mini_map.jpg');
+	width:233px;
+	height:253px;
+	border: 1px solid;
+	box-shadow: 3px 3px 1px #888888;
+}
+.pointer_text {
+	position:relative;
+	top:-420px;
+	left:700px;
+}
+.map-control {
+	position: absolute;
+	top: 30px;
+	right: 50px;
+	background: url('../images/map-control.png') no-repeat;
+	height: 63px;
+	width: 100px;
+}
+
+.map-control a {
+	height: 15px;
+	width: 15px;
+	display: block;
+	text-indent: -999em;
+	position: absolute;
+	outline: none;
+}
+
+.map-control a:hover {
+	background: #535353;
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+.map-control a.left {
+	left: 42px;
+	top: 23px;
+}
+
+.map-control a.right {
+	left: 79px;
+	top: 24px;
+}
+
+.map-control a.up {
+	left: 61px;
+	top: 6px;
+}
+
+.map-control a.down {
+	left: 61px;
+	top: 41px;
+}
+
+.map-control a.zoom {
+	left: 7px;
+	top: 7px;
+	height: 21px;
+	width: 21px;
+}
+
+.map-control a.back {
+	left: 7px;
+	top: 36px;
+	height: 21px;
+	width: 21px;
+}

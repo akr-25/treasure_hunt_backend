@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="This is an interactive Campus Map of IIT Guwahati with photos giving a virtual tour of the campus."
+    />
+    <meta
+      name="keywords"
+      content="IITG,IIT Guwahati,Campus Map,Interactive Map, Virtual Tour, Photos, Galleries"
+    />
+    <meta
+      name="author"
+      content="Team Leader : Prem Kumar Vislawath, Coding : P Dheeraj Goud, Pictures : Satyadeep Karnati &amp; Avinash Hindupur, Testing : N R S Sowrabh"
+    />
+    <title>IIT Guwahati Campus Map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" media="all" href="style.css" />
+    <!--link type="text/css" rel="stylesheet" media="all" href="css/nice_menus.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/nice_menus_default.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/report_user.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/report.css" /-->
+    <link type="text/css" rel="stylesheet" media="all" href="css/style.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      media="all"
+      href="css/map_style.css"
+    />
+    <link type="text/css" rel="stylesheet" media="all" href="css/overlay.css" />
+    <link type="text/css" rel="stylesheet" href="css/colorbox.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="js/themes/classic/galleria.classic.css"
+    />
+
+    <!--link type="text/css" rel="stylesheet" href="css/jquery.galleryview-3.0-dev.css" />
+    <!--link type="text/css" rel="stylesheet" media="all" href="css/main.css" /-->
+    <style type="text/css">
+      /**
+	 * This style sheet is for the sidebar in gallery view
+	 */
+      .writeup {
+        cursor: pointer;
+        border-radius: 3px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(219, 219, 183);
+        background-color: #eeeeea;
+        text-align: center;
+        margin: 2px;
+      }
+      .writeup_text {
+        display: none;
+      }
+      .link {
+        cursor: pointer;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body
+    class="
+      not-logged-in
+      front
+      full-node
+      node-type-page
+      layout-main
+      preface-first
+    "
+  >
+    <style type="text/css">
+      #loading-image {
+        background-color: #eee498;
+        position: fixed;
+        top: 0px;
+        left: 50%;
+        z-index: 101;
+        border-radius: 0px 0px 10px 10px; /* future proofing */
+      }
+    </style>
+
+    <!--div id="all_content" style="display:none;"-->
+    <div id="page" class="clearfix">
+      <div id="main-wrapper">
+        <div id="main" class="clearfix">
+          <div id="content-wrapper">
+            <div id="content">
+              <a name="main-content" id="main-content"></a>
+              <div id="content-inner">
+                <div id="content-content">
+                  <div class="iitg_map">
+                    <!-- <div class="map_help">
+                      <ul>
+                        <li>Zoom in or zoom out by using the mouse wheel.</li>
+                        <li>You can drag the map using the mouse.</li>
+                        <li>Click on a place to view the gallery.</li>
+                        <li>Use index to quick find a place.</li>
+                      </ul>
+
+                      <br />
+                      <a href="http://www.iitg.ac.in/aboutus" target="_blank"
+                        >About IIT Guwahati</a
+                      ><br />
+                      <a
+                        href="http://www.iitg.ac.in/visitorsinfo"
+                        target="_blank"
+                        >Visitors Information</a
+                      ><br />
+                      <a href="http://www.iitg.ac.in/faq" target="_blank">FAQ</a
+                      ><br />
+                      <a href="files/bus-timings-2010.pdf" target="_blank"
+                        >Bus Timings</a
+                      ><br />
+                    </div> -->
+                    <!-- map_help -->
+                    <div id="mapwrapper" class="mapwrapper">
+                      <div id="viewport">
+                        <!--div id="v2" style="width: 1458px; height: 1583px;">
+												<img src="images/layer2.png" alt="" />
+												<div id="bv2" class="mapcontent">
+													<!--map content goes here->
+												</div>
+											</div-->
+                        <div
+                          id="v1"
+                          style="
+                            background: url(images/layer1.png) no-repeat;
+                            width: 644px;
+                            height: 700px;
+                          "
+                        >
+                          <!--top level map content goes here-->
+                        </div>
+                        <div id="v4" style="width: 5832px; height: 6329px">
+                          <img src="images/layer4.png" alt="" />
+                          <div id="bv4" class="mapcontent">
+                            <!--map content goes here-->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- viewport -->
+                      <!--
+                                        	anything that needs to be shown on the map should be placed from here on.
+                                        -->
+                      <div
+                        id="map_control"
+                        class="map-control"
+                        style="z-index: 100"
+                      >
+                        <a href="#left" class="left">Left</a>
+                        <a href="#right" class="right">Right</a>
+                        <a href="#up" class="up">Up</a>
+                        <a href="#down" class="down">Down</a>
+                        <a href="#zoom" class="zoom">Zoom</a>
+
+                        <a href="#zoom_out" class="back">Back</a>
+                      </div>
+                      <!-- map-control -->
+                      <div
+                        style="
+                          z-index: 99;
+                          position: absolute;
+                          top: 10px;
+                          left: 10px;
+                          height: 25px;
+                          border: 1px solid;
+                          border-radius: 3px;
+                        "
+                      >
+                        <table id="hq_lq">
+                          <tr>
+                            <td style="background-color: white">
+                              <a
+                                style="text-decoration: none"
+                                href="index.php?lq"
+                                >LQ</a
+                              >
+                            </td>
+                            <td style="background-color: grey">HQ</td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div id="link_holder"></div>
+                    </div>
+                    <!-- pointer_text -->
+
+                    <div
+											style="display: hidden !important"
+                      id="pointer_div"
+                      class="pointer_class"
+                      onclick="point_it(event)"
+                      onmousedown="document.getElementById('hid').value='1';"
+                      onmouseup="document.getElementById('hid').value='0';point_it2(event);"
+                      onmousemove="point_it1(event);"
+                    >
+                      <div style="display: hidden !important" class="box_class" id="box_id" name="box_ie"></div>
+                    </div>
+                    <!-- pointer_div -->
+                  </div>
+                  <!-- iitg_map -->
+                </div>
+                <!-- content-content -->
+              </div>
+              <!-- /content-inner -->
+            </div>
+            <!-- /content -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page -->
+		<style type="text/css">
+      .chat-bubble-arrow-border {
+        border-color: #666666 transparent transparent transparent;
+        border-style: solid;
+        border-width: 10px;
+        height: 0;
+        width: 0;
+        position: absolute;
+        bottom: -22px;
+        left: 50%;
+      }
+      .chat-bubble-arrow {
+        border-color: #ededed transparent transparent transparent;
+        border-style: solid;
+        border-width: 10px;
+        height: 0;
+        width: 0;
+        position: absolute;
+        bottom: -19px;
+        left: 50%;
+      }
+    </style>
+    <div
+      id="previewer"
+      onmouseover="document.getElementById('previewer_on').value='1';"
+      onmouseout="document.getElementById('previewer_on').value='0';"
+      style="
+        z-index: 100;
+        border: 1px grey solid;
+        box-shadow: 0px 0px 3px 3px grey;
+        border-radius: 5px;
+        background-color: white;
+        position: absolute;
+      "
+    ></div>
+    <div
+      id="duplicate"
+      style="border-radius: 3px; position: absolute; display: block"
+    ></div>
+
+    <div class="overlay" id="overlay" style="display: none"></div>
+
+    <div class="box" id="box">
+      <!--a id="tweet_button" href="https://twitter.com/share" class="twitter-share-button" style="position:relative;top:50px;left:800px;">Tweet</a-->
+      <!--h1>Important message</h1>
+    <p>
+    Here comes a very important message for your user.
+    Turn this window off by clicking the cross.
+    </p-->
+      <!--table id="mygallerytable"><tr>
+    	<td align="center" id='mygalleryid'>
+        <div id="galleria">
+		</div>
+    	</td>
+        <td id="picture_text_td">
+        <div id='picture_text'>    
+        	<p align="right">
+        		<a style="cursor:pointer;text-decoration:none;" onclick="close_overlay();">X</a><br />
+            		<!--div id="social_buttons" style="position:relative;top:-35px;left:0px;width:200px;height:21px;">
+        			</div->
+    		</p>
+        </div>
+        </td>
+    </tr></table-->
+    
+    <!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script-->
+    <input type="hidden" id="overlay_code" value="" />
+    <input type="hidden" id="previewer_on" value="0" />
+    <input type="hidden" id="previewer_off" value="0" />
+    <input type="hidden" id="visit_by_hash" value="0" />
+    <input type="hidden" id="sidebar_heading" value="" />
+    <div style="display: none">
+      <img style="background: url(images/loading.gif) no-repeat" />
+    </div>
+    <style type="text/css">
+      .bullet-arrow {
+        vertical-align: text-top;
+      }
+    </style>
+    <script type="text/javascript">
+      function toggle_legends(legend) {
+        var expands = ["hostel_legends", "faculty_legends"];
+        if (!$("#" + legend).is(":visible")) {
+          $("#" + legend).show("slow");
+          $("#" + legend + "_arrow").attr("src", "images/arrow_down.png");
+        } else {
+          $("#" + legend).hide("slow");
+          $("#" + legend + "_arrow").attr("src", "images/arrow_right.png");
+        }
+        for (var i = 0; i < expands.length; i++) {
+          if (expands[i] != legend) {
+            if ($("#" + legend).is(":visible")) {
+              $("#" + expands[i]).hide("slow");
+              $("#" + expands[i] + "_arrow").attr(
+                "src",
+                "images/arrow_right.png"
+              );
+            }
+          }
+        }
+      }
+    </script>
+    <div id="legend_box" style="position: absolute; right: 0px; top: 300px">
+      <div
+        id="show_legend"
+        style="
+          background-color: #0087cc;
+          border: thin;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          width: 30px;
+          cursor: pointer;
+          float: left;
+          font-family: Arial, sans-serif;
+        "
+      >
+        <span style="font-size: 14px; font-weight: bold; color: white">
+          <br />
+
+          &nbsp;&nbsp;&nbsp;I<br />
+          &nbsp;&nbsp;n<br />
+          &nbsp;&nbsp;d<br />
+          &nbsp;&nbsp;e<br />
+          &nbsp;&nbsp;x<br />
+          <br />
+        </span>
+      </div>
+      <div
+        id="legends_list"
+        style="
+          float: left;
+          display: none;
+          border: thin;
+          border-bottom-left-radius: 15px;
+          background-color: #dfdfdf;
+          padding: 10px;
+        "
+      >
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(251,463);"
+          >Academic Complex</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(250,389);"
+          >Lecture Theaters</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(285,382);"
+          >Library &amp; Computer Center</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(264,362);"
+          >Adminstrative Building</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(336,206);"
+          >Guest House</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(286,336);"
+          >Auditorium</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(271,333);"
+          >Conference Hall</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(524,281);"
+          >Technology Complex</a
+        ><br />
+        <div>
+          <a
+            style="text-decoration: none; cursor: pointer"
+            onclick="toggle_legends('faculty_legends');"
+            >Residential Quarters<img
+              id="faculty_legends_arrow"
+              src="images/arrow_right.png"
+              class="bullet-arrow"
+            />
+          </a>
+          <div id="faculty_legends" style="display: none">
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(380,83);"
+              >A Type</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(358,108);"
+              >B Type</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(271,113);"
+              >C Type</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(231,179);"
+              >D Type</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(150,266);"
+              >E Type</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(301,201);"
+              >F Type</a
+            ><br />
+          </div>
+        </div>
+        <div>
+          <a
+            style="text-decoration: none; cursor: pointer"
+            onclick="toggle_legends('hostel_legends');"
+            >Hostels<img
+              id="hostel_legends_arrow"
+              src="images/arrow_right.png"
+              class="bullet-arrow"
+            />
+          </a>
+          <div id="hostel_legends" style="display: none">
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(511,378);"
+              >Barak</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(435,460);"
+              >Brahmaputra</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(379,431);"
+              >Dibang</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(450,413);"
+              >Dihing</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(511,352);"
+              >Kameng</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(375,400);"
+              >Kapili</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(458,390);"
+              >Manas</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(412,222);"
+              >Married Scholars</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(382,380);"
+              >Siang</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(338,283);"
+              >Subansiri</a
+            ><br />
+            &nbsp;&nbsp;&nbsp;<a
+              style="text-decoration: none; cursor: pointer"
+              onclick="go_legend(511,407);"
+              >Umiam</a
+            ><br />
+          </div>
+        </div>
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(376,321);"
+          >SAC</a
+        ><br />
+        <a
+          style="text-decoration: none; cursor: pointer"
+          onclick="go_legend(383,178);"
+          >Hospital</a
+        ><br />
+      </div>
+      <input type="hidden" id="legend_state" value="0" />
+    </div>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+      $("#loading-image").css(
+        "left",
+        (($(window).width() - $("#loading-image").width()) / 2).toString() +
+          "px"
+      );
+    </script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <!-- Second, add the Timer and Easing plugins -->
+    <script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <!-- Third, add the GalleryView Javascript and CSS files -->
+    <script type="text/javascript" src="js/galleria-1.2.7.min.js"></script>
+    <script
+      type="text/javascript"
+      src="js/themes/classic/galleria.classic.js"
+    ></script>
+    <script type="text/javascript">
+      // Load the classic theme
+      Galleria.loadTheme("js/themes/classic/galleria.classic.js");
+    </script>
+
+    <script type="text/javascript">
+      var numdivs = 4;
+    </script>
+    <script type="text/javascript" src="js/sidebar.js"></script>
+    <!--script type="text/javascript" src="js/jquery.galleryview-3.0-dev.js"></script>
+    <!-- mousewheel & mapbox plugins -->
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/mapbox_original.js"></script>
+    <script type="text/javascript" src="js/js_functions.js"></script>
+    <!--script type="text/javascript" src="js/jquery.ba-hashchange.js"></script-->
+    <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+    <!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      {parsetags: 'explicit'}
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /**
+         * this part initializes the map and can be used to set additional rules
+         */
+        $("#viewport").mapbox({
+          mousewheel: true,
+          layerSplit: 16, //smoother transition for mousewheel
+        });
+        /// This function is for creating the clickable areas on the map
+        $("#viewport").mapbox("createDivs");
+        /// the next two lines are for setting up the box in the mini map
+        $("#viewport").mapbox("zoom", 1);
+        $("#viewport").mapbox("back", 1);
+        //$("#viewport").mapbox("left", 200);
+        //$("#viewport").mapbox("down", 80);
+        /**
+         * This function is used for defining the actions of the control box on the top right side of the map
+         */
+        jQuery(".map-control a").click(function () {
+          //control panel
+          var viewport = $("#viewport");
+          //this.className is same as method to be called
+          if (this.className == "zoom" || this.className == "back") {
+            viewport.mapbox(this.className, 2); //step twice
+          } else {
+            viewport.mapbox(this.className);
+          }
+          return false;
+        });
+        /**
+         * This block will open the gallery if the url has #!<gallery name> part in it
+         */
+        $("#about").colorbox({
+          onClosed: function () {
+            //do something
+          },
+        });
+
+        $("#feedback").colorbox();
+      });
+      /**
+       * This will hide and show the legend box on the right side
+       */
+      $("#show_legend").click(function () {
+        if (document.getElementById("legend_state").value == "1")
+          $("#legend_state").val("0");
+        else $("#legend_state").val("1");
+        $("#legends_list").toggle("slow");
+      });
+      //$("#viewport").mapbox("zoom", 3);//zooms in 2 levels
+      //$("#viewport").mapbox("center");//centers current layer
+      /**
+       * This will open the gallery view on clicking #activator
+       */
+      $(function () {
+        $("#activator").click(function () {
+          $("#overlay").fadeIn("fast", function () {
+            $("#box").animate({ top: "0px" }, 500);
+          });
+        });
+        /*$('#boxclose').click(function(){
+				$('#box').animate({'top':'-2000px'},500,function(){
+					$('#overlay').fadeOut('fast');
+				});
+			});*/
+      });
+      /**
+       * The functions to be called when window resizes
+       */
+      $(window).resize(function () {
+        //update stuff
+        update_galleria();
+        /*var gheight = Math.floor($(window).height() * 0.9) < 400? 400: Math.floor($(window).height() * 0.9);
+			var gwidth = Math.floor($(window).width() * 0.65) < 600 ? 600: Math.floor($(window).width() * 0.65);
+		  Galleria.resize({width:gwidth,height:gheight},null);
+		  Galleria.rescale();*/
+      });
+      var kkeys = [],
+        konami = "38,38,40,40,37,39,37,39,66,65";
+      $(document).keydown(function (e) {
+        kkeys.push(e.keyCode);
+        if (kkeys.toString().indexOf(konami) >= 0) {
+          kkeys = [];
+          //$(document).unbind('keydown',arguments.callee);
+          $("#artnoc").toggle("slow");
+          /*alert("* Team Leader : Prem Kumar Vislawath\n"
+					+ "* Coding      : P Dheeraj Goud\n"
+					+ "* Pictures    : Satyadeep Karnati & Avinash Hindupur\n"
+					+ "* Testing     : N R S Sowrabh\n"
+					+ "* and thanks to everyone for their awesome support!!!");*/
+        }
+      });
+      /**
+       * Adding the feature of closing the gallery by pressing the escape button
+       */
+      $(document).keyup(function (e) {
+        if (e.keyCode == 27) {
+          close_overlay();
+        } // esc
+      });
+      if (!$.browser.mozilla) {
+        $("#pointer_div").mousedown(function () {
+          document.getElementById("hid").value = "1";
+          $("#box_id").hide();
+        });
+        $("#pointer_div").mouseup(function () {
+          document.getElementById("hid").value = "0";
+          point_it2(event);
+          $("#box_id").show();
+          $("#viewport").mapbox("left", 1);
+          $("#viewport").mapbox("right", 1);
+        });
+      }
+      $(window).load(function () {
+        $("#loading-image").hide();
+        //$("#all_content").show();
+      });
+      if (!(typeof history.pushState === "function")) {
+        $("#sbuttons").css({ left: 900 });
+      }
+      disableSelection(document.getElementById("legends_list"));
+      disableSelection(document.getElementById("show_legend"));
+      disableSelection(document.getElementById("hq_lq"));
+    </script>
+    <script
+      type="text/javascript"
+      src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=satyadeepk"
+    ></script>
+    <!--
+	/**
+	 * Team Leader : Prem Kumar Vislawath
+	 * Coding : P Dheeraj Goud
+	 * Pictures : Satyadeep Karnati & Avinash Hindupur
+	 * Testing : N R S Sowrabh
+	 */
+-->
+  </body>
+</html>
