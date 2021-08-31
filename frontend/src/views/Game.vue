@@ -168,7 +168,7 @@ export default {
 
       await axios
         // Replace BACKEND_URL wit the backend url
-        .post(`http://localhost:5000pi/answer/${this.qId}/${this.uId}`, answer, config)
+        .post(`http://localhost:5000/answer/${this.qId}/${this.uId}`, answer, config)
         .then((res) => {
           this.spinning = false;
           this.answerComment = res.data.message;
