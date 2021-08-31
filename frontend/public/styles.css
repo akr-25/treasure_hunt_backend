@@ -1,0 +1,32 @@
+body {
+  background-color: #003044 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+label,
+input {
+  color: #ffffff !important;
+}
+
+.card,
+input {
+  background-color: #044a68 !important;
+  border-radius: 10px;
+}
+
+.loading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
