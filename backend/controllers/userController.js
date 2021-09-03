@@ -19,7 +19,18 @@ exports.getAllUsers = async function (req, res) {
 
 exports.getUser = async function (req, res) {
   await users
-    .findOne({ uId: req.params.uid })
+    .findOne({ rollNumber: req.params.rollNumber },(err, user)=>{
+      if(user){
+        if(user.password === req.body.password){
+          res.send({message: "Login Successful", user: user});
+        }
+        else {
+          res.send({message:"Password did not match"});
+        }
+      } else {
+          res.send({message: "Roll Number did not match"});
+      }
+    })
     .select({
       uId: 1,
       fullName: 1,

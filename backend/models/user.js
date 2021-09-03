@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
+  rollNumber:{
+    type: String,
+    required:true,
+  },
+  password:{
+    type: String,
+  },
   uId: {
     type: String,
     unique: true,
@@ -14,11 +21,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
   lastAnsweredTime: {
     type: Date,
   },
@@ -29,6 +31,13 @@ const userSchema = new mongoose.Schema({
       time: Date,
     },
   ],
+  puzzles: [
+    {
+      level: Number,
+      totalScore:  Number,
+    }
+  ]
+  
 });
 
 const users = mongoose.model("users", userSchema);
