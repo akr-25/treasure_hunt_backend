@@ -71,6 +71,9 @@ app.use("/mastermind", (req, res) => {
 app.use("/mysteryroom", (req, res) => {
   res.render("mysteryroom.ejs")
 })
+app.use("/crossword", (req, res) => {
+  res.render("crossword.ejs")
+})
 
 
 app.use("/api/health", healthRouter);

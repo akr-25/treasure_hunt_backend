@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="/css/crossword.css">
+    <style type="text/css">
+      p.MsoNormal,li.MsoNormal,div.MsoNormal{margin:0;margin-bottom:.0001pt;font-size:12.0pt;font-family:"Times New Roman"}h2{margin-top:12.0pt;margin-right:0;margin-bottom:3.0pt;margin-left:0;page-break-after:avoid;font-size:14.0pt;font-family:Arial;font-style:italic}a:link,span.MsoHyperlink{color:blue;text-decoration:underline}a:visited,span.MsoHyperlinkFollowed{color:purple;text-decoration:underline}@page Section1{size:8.5in 11.0in;margin:1.0in 1.25in 1.0in 1.25in}div.Section1{page:Section1}body{background-color:#fefefe;color:black}input.play{font-family:monospace;font-weight:bold;font-size:125%;width:2em}div{text-align:left}div table{margin-left:auto;margin-right:auto;text-align:left}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var Size=new Number(6);var Moves=new Array();var noGame=1;var FD;var Board=new function(){this.init=function(){var b;Solve.init();for(var c=0;c<Size*Size;this.set(c++,0)){}for(var c=0;c<3+3*FD.selectedIndex;c++){Board.clicked(b=Math.floor(Math.random()*Size)+"-"+Math.floor(Math.random()*Size),1);Solve.add(b)}};this.clicked=function(b,e){var a,d;this.change(a=parseInt(b.split("-")[0]),d=parseInt(b.split("-")[1]),e);this.change(a-1,d,e);this.change(a+1,d,e);this.change(a,d-1,e);this.change(a,d+1,e)};this.change=function(a,d,b){if(this.check(a,d)){this.set(a+Size*d,(parseInt(this.get(a,d))+b)&3)}};this.set=function(a,b){window.document.forms.playForm.elements[a].value=b};this.get=function(a,b){return(this.check(a,b)?window.document.forms.playForm.elements[a+Size*b].value:" ")};this.check=function(a,b){return(a>=0&&b>=0&&a<Size&&b<Size)}};var Counter=new function(){this.counter=0;this.counterID=0;this.set=function(a){this.stop();this.counter=a;this.show()};this.get=function(){return this.counter};this.show=function(){window.document.forms.CounterForm["Counter"].value=this.counter};this.add=function(a){if((this.counter+=a)<=0){this.set(0)}this.show()};this.start=function(){this.set(1000);this.counterID=setInterval("Counter.add(-1)",166)};this.stop=function(){if(this.counterID){clearInterval(this.counterID)}this.counterID=0}};var Solve=new function(){this.solve=new Array();this.solveID=0;this.init=function(){this.stop();this.solve.length=0;for(var a=0;a<9;window.document.forms.hintForm.elements[a++].value=" "){}};this.add=function(){for(var a=0;a<arguments.length;this.solve.push(arguments[a++])){}this.solve.sort();for(var a=0;a<=this.solve.length-4;a++){if(this.solve[a]==this.solve[a+1]&&this.solve[a]==this.solve[a+2]&&this.solve[a]==this.solve[a+3]){this.solve.splice(a--,4)}}return this.solve.length};this.start=function(){this.solveID=setInterval("Solve.run()",window.document.forms.solveForm.SolveSpeed.options[window.document.forms.solveForm.SolveSpeed.selectedIndex].value)};this.stop=function(){if(this.solveID){clearInterval(this.solveID)}this.solveID=0};this.run=function(){var a;if(a=this.solve.pop()){return Board.clicked(a,3)}this.stop()};this.hint=function(){var b=this.solve[Math.floor(Math.random()*this.solve.length)];var a=parseInt(b.split("-")[0]);var c=parseInt(b.split("-")[1]);window.document.forms.hintForm.elements[0].value=Board.get(a-1,c-1);window.document.forms.hintForm.elements[1].value=Board.get(a,c-1);window.document.forms.hintForm.elements[2].value=Board.get(a+1,c-1);window.document.forms.hintForm.elements[3].value=Board.get(a-1,c);window.document.forms.hintForm.elements[4].value=Board.get(a,c);window.document.forms.hintForm.elements[5].value=Board.get(a+1,c);window.document.forms.hintForm.elements[6].value=Board.get(a-1,c+1);window.document.forms.hintForm.elements[7].value=Board.get(a,c+1);window.document.forms.hintForm.elements[8].value=Board.get(a+1,c+1)}};var Highscores=new function(){this.highscores=new Array();this.init=function(){for(var b=0;b<FD.length;b++){this.highscores[b]=new Array(10);for(var a=0;a<10;this.highscores[b][a++]=1){}}};this.add=function(a){this.highscores[FD.selectedIndex].push(a);this.highscores[FD.selectedIndex].sort();this.highscores[FD.selectedIndex].reverse();this.highscores[FD.selectedIndex].pop();this.show(a)};this.show=function(c){for(var b=0,a="";b<10;a+=(b<9?" ":"")+(b+1)+": "+this.highscores[FD.selectedIndex][b]+(c==this.highscores[FD.selectedIndex][b++]?"  <--":"")+"\n"){}window.document.forms.scoreForm.Scores.value=a}};function buttonNew(){Board.init();Moves.length=window.document.forms.clicksForm.Clicks.value=0;Highscores.show(0);Counter.start();noGame=0}function buttonMove(a){if(noGame){return}Board.clicked(a,3);window.document.forms.clicksForm.Clicks.value=Moves.push(a);if(Solve.add(a,a,a)){return}noGame=1;Counter.stop();if((i=3+3*FD.selectedIndex-Moves.length)<0){Counter.add(7*i)}Highscores.add(Counter.get())}function buttonUndo(a){if(noGame){return}Counter.add(-20);while(a--&&(i=Moves.pop())){Board.clicked(i,1),Solve.add(i)}window.document.forms.clicksForm.Clicks.value=Moves.length}function buttonHint(){if(noGame){return}Counter.add(-35);Solve.hint()}function buttonSolve(){if(noGame){return}noGame=1;Counter.set(0);Solve.start()}function doOnload(){FD=window.document.forms.settingsForm["Difficulty"];Highscores.init()}window.onload=doOnload;
+    </script>
+  </head>
+  <body>
+    <div class="flex-container">
+
+      <div id="puzzle_container">
+          <table id="puzzle">
+          </table>
+          <div id="buttons_container">
+              <button id="clear_all">Clear All</button>
+              <!-- <button id="check">Check</button> -->
+        </div>
+      </div>
+    </div>
+
+      <div id="hints_container">
+          <h3>Vertical</h3>
+              <div id="vertical_hints_container"></div>
+                1) You are detective Thames and you have been assigned a case.<br>
+                 Valerie has been murdered in her apartment building. There <br>
+                 are five suspects, and one of them is definitely the murderer.<br>
+                 You talked to the suspects, and this is what they said:<br>
+                Nick - In college, Valerie and I were together, but she dumped <br>
+                 me for Kurt, who became her husband later on. I never liked her <br>
+               anyway.<br>
+                Ellypse - Val and I were best friends in middle school. One day,<br>
+                 she just turned on me and I don't know why. She became best friends <br>
+                 with Stephanie, just a week later.<br>
+                Hannah D.- I didn't do it!<br>
+                Kurt - Valerie was such a good person, she didn't deserve to go like <br>
+                that. She had a successful career as a cryptologist and she was <br>
+                about to get her big break. She had so much to live for.<br>
+                John - Valerie was my only sister. I wouldn't have done anything <br>
+                 to her!<br>
+                An unsigned note was found in the apartment. It said:<br>
+                M XSPH CSY XLEX M ASYPH KIX CSY FEGO, ZEP. CSY WLSYPH LEZI WIIR MX GSQMRK.<br>
+                Who is the Killer?<br>
+                <br>
+                5) Four friends have been identified as suspects for Murdering James.<br>
+                   They have made statements to the investigating authorities.
+                  <ul>
+                    <li>Arjun said “Thomas did it.”</li>
+                    <li>Miami said “I didn't do it.”</li>
+                    <li>Thomas said “Michael did it.”</li>
+                  </ul>
+                   Michael said “Thomas lied when he said that I did it.”<br>
+                   If the authorities also know that exactly one of the four suspects <br>
+                   is telling the truth, who Murdered James?<br>
+                  <br>
+
+                  6) An inspector knows that exactly one of 3 suspects committed a <br>
+                     crime, and interviews them to find out which. Each person lies one <br>
+                     time, and tells the truth the other time.
+
+                    <ol type="a">
+                      Alpha says:
+                      <li>I didn't do it.</li>
+                      <li>Beta did it.</li>
+                    </ol>
+                    <ol type="a">
+                      Beta says:
+                      <li>I didn't do it.</li>
+                      <li>I know that Gamma did it.</li>
+                    </ol>
+                    <ol type="a">
+                      Gamma says:
+                      <li>I didn't do it.</li>
+                      <li>Beta does not know who it was.</li>
+                    </ol>
+                    Can the inspector figure out the culprit? If so, who is it?<br>
+                    <br>
+
+                    7) I am formed by concatenating the next four letters in the <br>
+                       series : - I,A,F,B,C,T,N,F <br>
+                       What am I?<br>
+                       <br>
+
+                    8) What 5 Letter word becomes shorter when you add two letters <br>
+                       to it?<br>
+                       <br>
+
+                    9) Alpha and Beta decided to play a game against each other. <br>
+                    They bet $1 on each game they played. Alpha won three bets and <br>
+                    Beta won $5. How many games did they play? Write your answer in <br>
+                    words.<br>
+                    <br>
+          <h3>Horizontal</h3>
+              <div id="horizontal_hints_container"></div>
+                    2) I am a Seven Letter word which uses only the words UMNI.<br>
+                     What am I?<br>
+                     <br>
+                    3)An elementary school teacher had her purse stolen. The thief <br>
+                    had to be Sammy, Karin, Arnold, Harry, or Liza. When questioned,<br>
+                     each child made three statements:
+<ol>
+  Sammy:
+  <li>I didn’t take the purse.</li>
+  <li>I have never in my life stolen anything.</li>
+  <li>Harry did it.</li>
+</ol>
+<ol>
+  Karin:
+  <li>I didn’t take the purse.</li>
+  <li>My daddy is rich enough, and I have a purse of my own.</li>
+  <li>Liza knows who did it.</li>
+</ol>
+<ol>
+  Arnold:
+  <li>I didn’t take the purse.</li>
+  <li>I didn’t know Liza before I enrolled in this school.</li>
+  <li>Harry did it.</li>
+</ol>
+<ol>
+  Harry:
+  <li>I am not guilty.</li>
+  <li>Liza did it.</li>
+  <li>Sammy is lying when she says I stole the purse.</li>
+</ol>
+<ol>
+  Liza:
+  <li>I didn’t take the teacher’s purse.</li>
+  <li>Karin is guilty.</li>
+  <li>Arnold can vouch for me because he has known me since I <br>
+  was born.</li>
+</ol>
+Later, each child admitted that two of his statements were true <br>
+and one was false. Assuming this is true, who stole the purse?<br>
+<br>
+4)  I am a 9 letter word and if you lose me you die. Consider me <br>
+as 123456789 where 1,2,3,4,5,6,7,8,9 have to be replaced by alphabets.<br>
+ If you have 234, you can 1234, 56 is one type of disease, 89 indicates <br>
+  exact location & time,2 & 7 are the same letters, 3 & 8 are the same <br>
+   letters, 5 & 9 are the same letters.<br><br>
+
+
+   <div style="left: 50%;">
+       <button id="final_submit">Final Submit</button>
+   </div>
+      </div>
+
+
+      <!-- <div id="buttons_container">
+          <button id="clear_all">Clear All</button>
+          <button id="check">Check</button>
+      </div> -->
+    </div>
+
+  <script src="/js/crossword.js">
+
+  </script>
+
+  </body>
+
+  <script type="text/javascript">
+    var encryptedWords = {
+
+      interact : "SAXNZNGA",
+      exponentially : "ZNOENZUMWYAJR",
+      Conclave : "DTXHXHHU",
+      amenities : "TGLXNTLUJ",
+      integrates : "RCQWMAXLEY",
+      techno :     "NLEYZN",
+      kilometers : "RPBPZGHDZA",
+      Alcheringa : "ZEKEMYAUCQ"
+    }
+    var is_puzzle_solved = 0;
+    var is_agesum_solved = 0;
+    var is_lettersum_solved = 0;
+    var puzzle_score = 0;
+    var puzzle_click_used = 0;
+    var start_button_clicked = 0;
+    var submittedCrossword = new Array(15);
+
+  function puzzleStart() {
+    console.log("Puzzle Started");
+    start_button_clicked += 1;
+    console.log(start_button_clicked);
+    if(start_button_clicked == 3){
+       $('#puzzle_start').prop('disabled', true);
+    }
+  }
+  function agesumcheckAnswer(){
+    var agesum_ans= document.getElementById("answer_agesum").value;
+    if(agesum_ans==117){
+        document.querySelector("#agesum_result").innerHTML = "<h4>Right Answer. You have unlocked 3 encrypted words in paragraph.</h4>";
+      is_agesum_solved = 1;
+      $('#Alcheringa').text(encryptedWords.Alcheringa);
+      $('#techno').text(encryptedWords.techno);
+      $('#exponentially').text(encryptedWords.exponentially);
+
+    }else{
+      document.querySelector("#agesum_result").innerHTML = "<h4> Try Again </h4>"
+    }
+  }
+
+  function lettersumcheckAnswer(){
+    var lettersum_ans= document.getElementById("answer_lettersum").value;
+    if(lettersum_ans==56){
+
+      document.querySelector("#lettersum_result").innerHTML = "<h4>Right Answer. You have unlocked 2 encrypted words in paragraph.</h4>";
+       is_lettersum_solved = 1;
+       $('#integrates').text(encryptedWords.integrates);
+       $('#interact').text(encryptedWords.interact);
+
+    }else{
+      document.querySelector("#lettersum_result").innerHTML = "<h4> Try Again </h4>"
+    }
+  }
+  $('#puzzle_check').on('click', () => {
+    // console.log("Puzzle One Saved");
+    let total_input_len = $('#cell').find('.play').length;
+    // console.log(total_input_len);
+    var ct = 0;
+    for(let i=0; i< total_input_len; i++){
+      if($('#cell').find('.play').eq(i).val() == '0'){
+        ct++;
+      }
+    }
+    console.log(ct);
+    if(ct === 36){
+      is_puzzle_solved = 1;
+      console.log("Puzzle 1 Solved");
+      alert("Puzzle Solved. Move to next Question. You have unlocked 3 encrypted words in paragraph.");
+      $('#kilometers').text(encryptedWords.kilometers);
+      $('#amenities').text(encryptedWords.amenities);
+      $('#Conclave').text(encryptedWords.Conclave);
+       puzzle_score = $('#score').val();
+       puzzle_click_used = $('#clickused').val();
+       console.log(puzzle_score);
+
+    }
+    else{
+      alert("You haven't solved the puzzled yet");
+    }
+  });
+
+  $('#final_submit').on('click', ()=> {
+    let total_square = $('#puzzle').find('.square').length;
+    console.log($('#puzzle').find('.square').eq(1).text());
+    for (let i = 0; i < 15; i++) {
+      submittedCrossword[i] = new Array(15);
+  }
+  var k =0;
+  for(let i=0; i < 15; i++){
+    for(let j=0; j < 15; j++){
+       submittedCrossword[i][j] = $('#puzzle').find('.square').eq(k).text();
+       k++;
+    }
+  }
+    // console.log(submittedCrossword);
+    $.ajax({
+              type: "POST",
+              url: "/ans",
+              data: {
+                'submittedCrossword': JSON.stringify(submittedCrossword), csrfmiddlewaretoken: '{{ csrf_token }}',
+                // 'puzzle_score': puzzle_score,
+                // 'puzzle_click_used': puzzle_click_used,
+                // 'is_agesum_solved': is_agesum_solved,
+                // 'is_lettersum_solved': is_lettersum_solved
+
+              },
+              dataType: 'json',
+              success: function (data) {
+                alert("Your response have been subitted");
+              }
+          });
+  });
+
+  </script>
+</html>

@@ -1,0 +1,137 @@
+.full_page{
+  width:992px;
+  margin:0 auto;
+  padding:25px;
+  background: url(/static/payback/images/firstyear/images/highschool-texture.png);
+}
+
+.green{background: #019d95;}
+.header {
+  overflow: hidden;
+  background: #019d95;
+  padding: 10px 10px;
+  height:65px;
+  position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 5;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 15px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a.active {
+  background-color: black;
+  color: white;
+}
+
+.header-right {
+  float: right;
+  color: white;
+  padding-right: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+}
+
+#puzzle {
+    width:100%;
+    /* margin: 0; */
+    /* padding: 10px; */
+    border: 1px solid black;
+    padding-left: 20px
+}
+
+.square{
+    width:30px;
+    height:30px;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    position: relative;
+}
+
+.empty{
+    background-color:white;
+}
+
+.letter{
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+#puzzle_container{
+    display: inline-block;
+    float: left;
+    width:40%;
+    height: 50%;
+    margin-left:10px;
+    padding-left: 10px
+    /* flex: 50%; */
+
+    /* position: fixed; */
+}
+
+#hints_container{
+    float: left;
+    width:50%
+    height: 50%;
+    margin-left: 25px;
+    /* flex: 50%; */
+
+}
+
+#buttons_container{
+    clear: both;
+    padding-top: 20px;
+    margin-left: 50px;
+}
+
+.active{
+    border-color: red;
+}
+
+.question_number{
+    position: absolute;
+    font-size: 12px;
+    color: grey;
+    left: 3px;
+    top: 3px;
+}
+
+td{
+    position:relative;
+}
+
+.heading {
+    position: relative;
+    left: 90%;
+    transform: translateX(-50%);
+    font-size: 30px;
+}
+
+/* .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column
+} */
