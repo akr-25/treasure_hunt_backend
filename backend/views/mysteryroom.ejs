@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CAMPUS LA VIE</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css"
+          media="screen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <style>
+        /*body {
+            font-family: Arial, Helvetica, sans-serif;
+            {#overflow: hidden;#}
+            background: linear-gradient(to top, saddlebrown 0%, saddlebrown 50%, darkgreen 50%, darkgreen 100%);
+
+        }*/
+        body, html {
+		  height: 100%;
+		  margin: 0;
+		}
+
+		.bg {
+		  /* The image used */
+		  background-image: url("/imgnew/room-escape-maker.png");
+
+		  /* Full height */
+		  height: 100%;
+
+		  /* Center and scale the image nicely */
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		}
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        span {
+            cursor: pointer;
+            font-size: 25px;
+        }
+        .header-right {
+            float: right;
+            color: white;
+            padding-right: 40px;
+        }
+
+        /*.modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            outline: 0;
+        }*/
+        .modal-content {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: .3rem;
+            outline: 0;
+        }
+        .modal-body {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+	<!-- <img src="/static/mystery_rooms/imgnew/room-escape-maker.png" alt=""  style="position: absolute;width: 100vw;height:100vh;"> -->
+	<div class="bg"></div>
+	<div class="cabinet-section">
+		<div style="position: fixed; top: 15%; left: 2%; cursor: pointer;">
+		<img src='/imgnew/cabinet.png'
+		id="cupboard_final">
+		</div>
+		<div id="cupboard_final_modal" class="modal">
+	        <div class="modal-content">
+	            <span id="cubboard_close">&times;</span>
+	            <div class="modal-body">
+	                <form action="/cabinet1" method="post">
+	                    <div class="form-group">
+	                        <label for="formGroupExampleInput">Alpha and Beta were reading about some special sequence where each number of the sequence can be obtained by summing the previous two numbers. They searched for who the creator of this amazing sequence was, and found that the creator was an Italian mathematician. They were sad since they thought that it would be their favourite mathematician X, the one who invented zero. They then came across a group of words
+																															and thought to find an odd one out of them.
+																															Can you help them in their quest to proceed to the next level?
+
+	                        </label>
+	                        <input type="text" class="form-control" id="cabinetq1" placeholder="Enter Answer" name="cq1">
+	                    </div>
+											<div class="modal-footer">
+					                <button type="submit" class="btn btn-primary" id="cabinetq1submit">save answer</button>
+					            </div>
+	                </form>
+	            </div>
+
+	        </div>
+		</div>
+	</div>
+
+	<div class="door-section">
+		<div style="position: fixed; top: 20%; left: 26%; cursor: pointer;">
+			<img src="/imgnew/door.png" id="door_final">
+		</div>
+		<div id="door_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="door_close">&times;</span>
+                <div class="modal-body">
+                    <form action="/door1" method="post">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Even after solving the puzzle correctly the other members of the friend circle aren’t convinced and hence they decide to give both of you another puzzle. Both of you have in total the number of coins which is the answer to the ‘snake and ladder’ puzzle. Now Gamma thinks of a 100 degree polynomial(p(x)) whose coefficients are all natural numbers. You have to guess all the coefficients of the polynomial.
+																															You can give 1 coin to gamma and a whole number ‘z’ and gamma will give you the value of p(z). You can borrow extra coins from your good friend delta but you would like to borrow as few as possible. How many extra coins would you have to borrow(except the coins you already have) to correctly guess all the coefficients of the polynomial.
+
+                            </label>
+                            <input type="text" class="form-control" id="doorq1" placeholder="Enter Answer" name="dq1">
+                        </div>
+												<div class="modal-footer">
+				                    <button type="submit" class="btn btn-primary" id="doorq1submit">save answer</button>
+				                    <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+				                </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+	</div>
+
+	<div class="locker1-section">
+		<div style="position: fixed; top: 40%; left: 45%; cursor: pointer;">
+			<img style="width: 140px; height: 95px;" src="/imgnew/loc.png" id="locker1_final">
+		</div>
+		<div id="locker1_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="locker_close1">&times;</span>
+                <div class="modal-body">
+                    <form action="/locker1" method="post">
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"> Since Alpha and Beta disrespected the great mathematician X previously, by not following him, their friend Gamma removed them from their circle of friends in a moment of anger but he later felt that Alpha and Beta can be given another chance to prove themselves. He took out a standard snakes and ladders game and told them that he can finish this game in ‘a’ moves where ‘a’ is the unit’s place of the number ‘y’ they had 					 calculated in the previous question.
+																				He asks them if there is a way where they can finish the game in ‘b’ moves where ‘b’ is the digit at the ten’s place of their answer in the previous question and if yes in how many ways can they do it.<br>
+																				*note:- if they can’t do it the answer is 0.
+
+                            </label>
+                            <input type="text" class="form-control" id="locker1q1" value="" placeholder="Enter Answer" name="l1q1">
+                        </div>
+												<div class="modal-footer">
+				                    <button type="submit" class="btn btn-primary" id="locker1q1submit">save answer</button>
+
+				                </div>
+                    </form>
+                </div>
+
+            </div>
+		</div>
+	</div>
+
+	<div class="locker2-section">
+		<div style="position: fixed; top: 54%; left: 45%; cursor: pointer;">
+			<img src="/imgnew/alma.png" id="locker2_final">
+         </div>
+		<div id="locker2_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="locker_close3">&times;</span>
+                <div class="modal-body">
+                    <form action="/locker2" method="post">
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"> Alpha and Beta hated odd things and wanted to make amends. They took the odd word from above and created ‘x' new words which would have fit the pattern with the other words given but each new word has only one character different from the original word. They then had a closer look at those newly created words and specifically wrote down the new characters in those words (the characters which were different from the original word). Then they added all those characters' numerical value, considering A as 1, B as 2 and so on, and subtracted ‘x' from it. Find out the answer they might have received and consider it as ‘y’.<br>
+															*Note:-  The newly formed words may not be meaningful words.
+
+                            </label>
+                            <input type="text" class="form-control" id="locker2q1" placeholder="Enter Answer" name="l2q1">
+                        </div>
+												<div class="modal-footer">
+				                    <button type="submit" class="btn btn-primary" id="locker2q1submit">Save answer</button>
+				                </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="locker2q1submit">Save answer</button>
+                </div> -->
+            </div>
+		</div>
+	</div>
+
+	<div class="painting1-section">
+		<div style="position: fixed; top: 6%; right: 25%; cursor: pointer;" id="painting1_final">
+			<img src="/images/painting1_final.png" width="220px" height="200px">
+		</div>
+		<div id="painting1_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="painting_close1">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/painting1_final.png" class="img-fluid img-thumbnail">
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="hint1">take a hint</button>
+
+                </div> -->
+            </div>
+		</div>
+	</div>
+
+	<div class="painting2-section">
+		<div style="position: fixed; top: 6%; right: 3%; cursor: pointer;" id="painting2_final" >
+			<img src="/images/painting2_final.png" width="220px" height="200px">
+		</div>
+		<div id="painting2_final_modal" class="modal">
+                <div class="modal-content">
+                    <span id="painting_close2">&times;</span>
+                    <div class="modal-body">
+                        <img src="/images/painting2_final.png" class="img-fluid img-thumbnail">
+
+                    </div>
+
+                </div>
+		</div>
+	</div>
+	<div class="painting3-section">
+		<div style="position: fixed; top: 40%; right: 25%; cursor: pointer;" id="painting3_final">
+			<img src="/images/painting3_final.png" style="width: 200px; height: 220px;">
+		</div>
+        <div id="painting3_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="painting_close3">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/painting3_final.png" class="img-fluid img-thumbnail">
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="hint2">take a hint</button>
+
+                </div> -->
+            </div>
+        </div>
+	</div>
+
+	<div class="painting4-section">
+		<div id="painting4_final" style="position: fixed; top: 40%; right: 3%; cursor: pointer;">
+			<img src="/images/painting_4final.png" style="width: 200px; height: 220px;">
+		</div>
+        <div id="painting4_final_modal" class="modal">
+            <div class="modal-content">
+                <span id="painting_close4">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/painting_4final.png" class="img-fluid img-thumbnail">
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="hint3">take a hint</button>
+
+                </div> -->
+            </div>
+        </div>
+	</div>
+
+	<div id="cabinetmodal3" class=modal>
+            <div class="modal-content">
+                <span id="cabinet_close2">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/cupboardpuzzle2.png" class="img-fluid img-thumbnail">
+
+                </div>
+
+            </div>
+	</div>
+
+	<div id="cabinetmodal2" class=modal>
+            <div class="modal-content">
+                <span id="cabinet_close1">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/cupboardpuzzle1.png" class="img-fluid img-thumbnail">
+                    <form>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"> submit code 5 capital letters
+
+
+                            </label>
+                            <input type="text" class="form-control" id="cabinetq2" placeholder="Enter Answer">
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="cabinetq2submit">save answer</button>
+                    <button type="button" class="btn btn-primary" id="hint5">take a hint</button>
+                </div> -->
+            </div>
+        </div>
+
+        <div id="locker1modal2" class=modal>
+            <div class="modal-content">
+                <span id="locker_close2">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/lockerpuzzle1.png" class="img-fluid img-thumbnail">
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="hint4">take a hint</button>
+
+                </div> -->
+            </div>
+		</div>
+
+		<div id="cabinetmodal3" class=modal>
+            <div class="modal-content">
+                <span id="cabinet_close2">&times;</span>
+                <div class="modal-body">
+                    <img src="/images/cupboardpuzzle2.png" class="img-fluid img-thumbnail">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="locker2modal2" class="modal">
+            <div class="modal-content">
+                <span id="locker_close4">&times;</span>
+                <img src="/images/lockerpuzzle2.png" class="img-thumbnail">
+            </div>
+
+       	</div>
+           <button type="button" id="submit" style="position: fixed; bottom: 2%; right: 3%">Submit</button>
+           <!-- <button type="button" onclick="window.location = '../graduation'" id="submit" style="position: fixed; bottom: 2%; right: 9%">Skip</button> -->
+           <div class="header-right" id="painting10_final" style="position: fixed; bottom: 2%; right: 13%">
+                <a class="active">Rules</a>
+            </div>
+            <div id="painting10_final_modal" class="modal">
+                <div class="modal-content">
+                    <span id="painting_close10"  style="cursor: pointer;font-size: 25px;">&times;</span>
+                    <div class="modal-body"  >
+                        <strong>HOW TO PLAY:-  </strong>    <br> <br>
+
+
+                     <strong>  ↠   </strong> 1. Click on objects to view their contents. <br>
+                     <strong>  ↠   </strong> 2.Enter capital letters only (wherever applicable)  <br>
+                     <strong>  ↠   </strong> 3. Look out for clues hidden in puzzle images , they may be useful later. <br>
+                     <strong>  ↠   </strong> 4. You can take hints at certain points during the game , but keep in mind that points will be deducted on usage of hints . <br>
+                     <strong>  ↠   </strong> 5 . The main aim of the game is to escape the room through the door . Don't try guessing , it won't work 🙂 <br>
+                     <strong>  ↠   </strong> 6. Submitting each correct code will be rewarded with respective points. <br>
+                    </div>
+                </div>
+            </div>
+
+
+<script>
+    var modal123 = document.getElementById("painting10_final_modal");
+    var img123 = document.getElementById("painting10_final");
+    // var span1 = document.getElementsByClassName("close")[0];
+    img123.onclick = function () {
+        modal123.style.display = "block";
+
+    }
+    $('#painting_close10').on('click', () => {
+        modal123.style.display = "none";
+    });
+</script>
+
+
+<script>
+	var locker1 = "Not_answered";
+    var locker2 = "Not_answered";
+    var locker3 = "Not_answered";
+    var locker4 = "Not_answered";
+    var locker5 = "Not_answered";
+
+
+
+    var modal1 = document.getElementById("painting1_final_modal");
+    var img1 = document.getElementById("painting1_final");
+    // var span1 = document.getElementsByClassName("close")[0];
+    img1.onclick = function () {
+        modal1.style.display = "block";
+
+    }
+    $('#painting_close1').on('click', () => {
+        modal1.style.display = "none";
+    });
+
+    var modal2 = document.getElementById("painting2_final_modal");
+    var img2 = document.getElementById("painting2_final");
+    // var span2 = document.getElementsByClassName("close")[0];
+    img2.onclick = function () {
+        modal2.style.display = "block";
+    }
+    $('#painting_close2').on('click', () => {
+        modal2.style.display = "none";
+    })
+
+    var modal3 = document.getElementById("painting3_final_modal");
+    var img3 = document.getElementById("painting3_final");
+    // var span3 = document.getElementsByClassName("close")[0];
+    img3.onclick = function () {
+        modal3.style.display = "block";
+    }
+    $('#painting_close3').on('click', () => {
+        modal3.style.display = "none";
+    });
+
+    var modal4 = document.getElementById("painting4_final_modal");
+    var img4 = document.getElementById("painting4_final");
+    // var span4 = document.getElementsByClassName("close")[0];
+    img4.onclick = function () {
+        modal4.style.display = "block";
+    }
+    $('#painting_close4').on('click', () => {
+        modal4.style.display = "none";
+    });
+
+    var modal5 = document.getElementById("locker1_final_modal");
+    var img5 = document.getElementById("locker1_final");
+    // var span5 = document.getElementsByClassName("close")[0];
+    img5.onclick = function () {
+        modal5.style.display = "block";
+
+    }
+    $('#locker_close1').on('click', () => {
+        modal5.style.display = "none";
+    });
+
+    var modal6 = document.getElementById("locker2_final_modal");
+    var img6 = document.getElementById("locker2_final");
+    // var span6 = document.getElementsByClassName("close")[0];
+    img6.onclick = function () {
+        modal6.style.display = "block";
+
+    }
+    $('#locker_close3').on('click', () => {
+        modal6.style.display = "none";
+    });
+
+    var modal7 = document.getElementById("cupboard_final_modal");
+    var img7 = document.getElementById("cupboard_final");
+    // var span7 = document.getElementsByClassName("close")[0];
+    img7.onclick = function () {
+        modal7.style.display = "block";
+
+    }
+    $('#cubboard_close').on('click', () => {
+        modal7.style.display = "none";
+    });
+
+    var modal8 = document.getElementById("door_final_modal");
+    var img8 = document.getElementById("door_final");
+    // var span8 = document.getElementsByClassName("close")[0];
+    img8.onclick = function () {
+        modal8.style.display = "block";
+
+    }
+    $('#door_close').on('click', () => {
+        modal8.style.display = "none";
+    });
+
+
+    var modal9 = document.getElementById("locker1modal2");
+    var submit1 = document.getElementById("locker1q1submit");
+    submit1.onclick = function () {
+        var locker1ans1 = document.getElementById("locker1q1").value;
+        if (locker1ans1 == 2) {
+        	locker1 = 2;
+            // modal9.style.display = "block";
+            // $('#locker_close2').on('click', () => {
+            //     modal9.style.display = "none";
+            // });
+        } else {
+            alert("wrong answer");
+        }
+
+    }
+
+
+
+
+    var modal10 = document.getElementById("cabinetmodal2");
+    var submit2 = document.getElementById("cabinetq1submit");
+    submit2.onclick = function () {
+        var cabinetans1 = document.getElementById("cabinetq1").value;
+        if (cabinetans1 == "CUP") {
+        	locker4 = "CUP";
+            // modal10.style.display = "block";
+            // $('#cabinet_close1').on('click', () => {
+            //     modal10.style.display = "none";
+            // });
+
+        } else {
+            alert("wrong answer");
+        }
+
+    }
+    // var modal12 = document.getElementById("cabinetmodal3")
+    // var submit4 = document.getElementById("cabinetq2submit")
+    // submit4.onclick = function () {
+    //     var cabinetans2 = document.getElementById("cabinetq2").value;
+    //     if (cabinetans2 == "TANGO") {
+    //     	locker5 = "TANGO";
+    //     	modal10.style.display = "none";
+    //         modal12.style.display = "block"
+    //         console.log("Modal12")
+    //         $('#cabinet_close2').on('click', () => {
+    //             modal12.style.display = "none";
+    //         });
+		// 			} else {
+	  //           alert("wrong answer");
+	  //       }
+    // }
+
+    var modal11 = document.getElementById("locker2modal2");
+    var submit3 = document.getElementById("locker2q1submit")
+    submit3.onclick = function () {
+        var locker2ans1 = document.getElementById("locker2q1").value;
+        if (locker2ans1 == 56) {
+        	locker2 = 56;
+            // modal11.style.display = "block";
+            // $('#locker_close4').on('click', () => {
+            //     modal11.style.display = "none";
+            // });
+					} else {
+	            alert("wrong answer");
+	        }
+    }
+
+
+    var submit5 = document.getElementById("doorq1submit")
+    submit5.onclick = function () {
+        var finalans = document.getElementById("doorq1").value;
+        if (finalans == "0") {
+        	locker3 = "0";
+            alert("congrats you are out of the room")
+					} else {
+	            alert("wrong answer");
+	        }
+    }
+
+    var h1 = false;
+    var hint1 = document.getElementById("hint1")
+    hint1.onclick = function () {
+        h1 = true;
+        alert("The first one trumped you ? Alright , so Gianteye (Deepmire and Imaginez), Meramaid (Miraculo and Septimus) . That should be enough . No? Ok then , take this as well : the position of the 13th letter might be ironically lucky to you in each word , maybe arrange something accordingly?");
+    }
+
+    var h2 = false;
+    var hint2 = document.getElementById("hint2")
+    hint2.onclick = function () {
+        h2 = true;
+        alert("Try representing a chess board using these cheese types according to recipes. You may find an analogy with a normal chess board Anyway , the recipe B and C give the same number as the answer .");
+    }
+
+    var h3 = false;
+    var hint3 = document.getElementById("hint3")
+    hint3.onclick = function () {
+        h3 = true;
+        alert("A special pattern which can be related with 5 and 22 in different systems may be formed . A crucial puzzle , so that's all you get .");
+    }
+
+    var h4 = false;
+    var hint4 = document.getElementById("hint4")
+    hint4.onclick = function () {
+        h4 = true;
+        alert("Stuck! Think of complementary colors (blue + yellow is green and so on) , extract red , blue and yellow colored squares from the big square and count the total number of squares , carefully though");
+    }
+
+    var h5 = false;
+    var hint5 = document.getElementById("hint5")
+    hint5.onclick = function () {
+        h5 = true;
+        alert("You must have seen a black jack 21 statement somewhere . Also there are 26 cards , ace means 1 and face means 10 . Think about what other common set has 26 elements , and keep in mind that the sum MUST be 21 .");
+    }
+		//
+    // var jsonanswer = new Object();
+    // $('#submit').on('click', () => {
+    //     console.log(locker1, locker2, locker3, locker4, locker5,h1,h2, h3, h4, h5);
+		//
+    //     jsonanswer = {'hint1':h1,'hint2':h2,'hint3':h3,'hint4':h4,'hint5':h5,'locker1':locker1,'locker2':locker2,'locker3':locker3,'locker4':locker4,'locker5':locker5}
+		//
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "{%url 'mysteryroom_submission' %}",
+    //             data: {
+    //                 'JSONanswer':JSON.stringify(jsonanswer),
+    //                 csrfmiddlewaretoken: '{{ csrf_token }}',
+    //             },
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 alert("Your response have been submitted");
+    //                 window.location.href = '/graduation'
+    //             }
+    //         });
+    //     }
+    // );
+</script>
+
+
+
+
+</body>
+</html>

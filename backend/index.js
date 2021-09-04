@@ -14,7 +14,8 @@ const userRouter = require("./router/userRouter");
 const answerRouter = require("./router/asnwerRouter");
 const leaderBoardRouter = require("./router/leaderBoard");
 
-const answer=["answer1", "answer2", "answer3", "answer4"]
+// module.exports.answers =["answer1", "answer2", "answer3", "answer4"]
+
 
 const app = express();
 app.use(cors())
@@ -66,6 +67,9 @@ app.use("/sixteen", (req, res) => {
 })
 app.use("/mastermind", (req, res) => {
   res.render("mastermind.ejs")
+})
+app.use("/mysteryroom", (req, res) => {
+  res.render("mysteryroom.ejs")
 })
 
 

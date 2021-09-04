@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,11 +33,12 @@ h3 {
             <p class="card-text">
               Questions come here
             </p>
-            <form class="form-inline">
+            <!-- <form class="form-inline"> -->
               <div class="form-group mb-2">
                 <label for="validationServer01" class="sr-only">Answer</label>
                 <input
                   type="text"
+                  id="inputanswer"
                   class="form-control"
                   placeholder="Enter your Answer"
                   required
@@ -49,25 +51,23 @@ h3 {
                 </div> -->
               </div>
               <button
-                v-if="!isAnswerCorrect"
-                type="submit"
+                id="submitButton"
                 class="btn mb-2"
                 style="background-color: #f59800"
               >
+                <p id="level" style="display: none;">0</p>
                 </span>
                 <span class="sr-only">Verify Answer</span>
               </button>
-              <button id="submitButton" submit="" class="btn btn-success mb-2">
+              <!-- <button  class="btn btn-success mb-2">
                 Play Next Level
-              </button>
-            </form>
+              </button> -->
+            <!-- </form> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-<script>
-    document.getElementById("submitButton").addEventListener("click", )
-</script>
+<script src="http://localhost:8080/answerChecker.js"></script>
 </html>
