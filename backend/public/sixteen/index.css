@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    border: 0;
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+    user-select: none;
+   }
+   button {
+    border-radius: 5px;
+    width: 300px;
+    height: 80px;
+    font-size: 40px;
+    margin-top: 60px;
+
+   }
+   #board {
+    width: 410px;
+    height: 410px;
+    margin: 120px auto 30px auto;
+   }
+   #done {
+    font-size: 140px;
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 23, 56, .5);
+    border: 1px solid rgb(0, 90, 220);
+    width: 700px;
+    position: absolute;
+    top: 250px;
+    left: calc(50% - 380px);
+   }
+#shuffle{
+  position: relative;
+right: -131px;
+}
+#subbtn{
+  position: relative;
+right: 162px;
+}
+
+
+   #moves {
+
+    line-height: 80px;
+    height: 80px;
+    width: 300px;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: aliceblue;
+
+font-size: 3rem !important;
+
+   }
+   .btn,
+   .numbers,
+   .hide {
+    float: left;
+    width: 64px;
+    height: 64px;
+    line-height: 65px;
+    font-size: 40px;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    cursor: none;
+    margin: 1px;
+    transition: all .3s;
+
+   }
+   .btn:hover {
+    background-color: rgba(71, 231, 71, 0.5);
+    cursor: pointer;
+   }
+   .hide {
+    border: 1px solid white;
+    cursor: none;
+   }
+
+
+   #submittedGame {
+    font-size: 140px;
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 23, 56, .5);
+    border: 1px solid rgb(0, 90, 220);
+    width: 700px;
+    position: absolute;
+    top: 250px;
+    left: calc(50% - 380px);
+   }
+   .container{
+     display: flex;
+justify-content: center;
+top: -684px;
+position: relative;
+   }
+   @media screen and (max-width: 480px) {
+  button{
+    font-size: 10px
+    width: 100px;
+    height: 50px;
+    position: relative;
+    right: -71px;
+    justify-content: space-between;
+  }
+}
+
+p{
+  font-family: sans-serif;
+  /* position: relative;
+  bottom: 132px */
+}

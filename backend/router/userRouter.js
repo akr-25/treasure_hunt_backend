@@ -12,7 +12,7 @@ router.post("/:rollNumber",(req,res)=>{
     users.findOne({rollNumber: rollNumber}, (err,user)=>{
         if(user){
             if(password === user.password) {
-                res.send({message: "Login Succesful"}, user);
+                res.send({ message: "Login Succesful", user});
             }
             else {
                 res.send({message: "Password incorrect"});

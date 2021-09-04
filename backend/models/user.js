@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+const mastermindScoreSchema = require("./mastermind")
 
 const userSchema = new mongoose.Schema({
-  rollNumber:{
-    type: String,
-    required:true,
-  },
+  // rollNumber:{
+  //   type: String,
+  //   required:true,
+  // },
   password:{
     type: String,
   },
@@ -17,10 +18,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  fullName: {
-    type: String,
-    required: true,
-  },
+  // fullName: {
+  //   type: String,
+  //   required: true,
+  // },
   lastAnsweredTime: {
     type: Date,
   },
@@ -36,8 +37,8 @@ const userSchema = new mongoose.Schema({
       level: Number,
       totalScore:  Number,
     }
-  ]
-  
+  ],
+  // mastermindScore: mastermindScoreSchema
 });
 
 const users = mongoose.model("users", userSchema);

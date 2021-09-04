@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style scoped>
+h3 {
+  text-align: center;
+}
+</style>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row bg-primary" v-else>
+      <div class="col col-lg-6 mx-auto m-5">
+        <div class="card p-3">
+          <h3 class="pb-3">
+            <b
+              ><i>Level 3</i></b
+            >
+          </h3>
+          <img
+            src="./images/clue3.jpg"
+            class="mx-auto"
+            style="width: 100%"
+            :alt="`#${level}`"
+          />
+          <div class="card-body">
+            <p class="card-text">
+              Questions come here
+            </p>
+            <form class="form-inline" >
+              <div class="form-group mb-2">
+                <label for="validationServer01" class="sr-only">Answer</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your Answer"
+                  required
+                  v-model="answer"
+                  />
+                  <!-- <div>
+                  readonly="isAnswerCorrect"
+                  id="validationServer01"
+                  <b>{{ answerComment }}</b>
+                </div> -->
+              </div>
+              <button
+                v-if="!isAnswerCorrect"
+                type="submit"
+                class="btn mb-2"
+                style="background-color: #f59800"
+              >
+                </span>
+                <span class="sr-only">Verify Answer</span>
+              </button>
+              <button submit="" class="btn btn-success mb-2">
+                Play Next Level
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+    // var doc
+
+</script>
+</html>
