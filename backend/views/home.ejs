@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style scoped>
+a {
+  color: white;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+}
+a:focus {
+  color: black;
+}
+</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="bg-primary">
+     
+  </div>
+  <div class="container" v-else>
+    <div class="row">
+      <div class="col-12 col-md-6 mt-4">
+        <h4 class="mt-3"><b>Details</b></h4>
+        <form class="mt-4" action="/api/users/123456" method="POST">
+          <div class="form-group">
+            <label for="uId">Roll number</label>
+            <input
+              type="text"
+              name="uId"
+              class="form-control"
+              id="exampleInputFullName"
+              placeholder="e.g. H12341221"
+              required
+            />
+          </div>
+          <div class="form-group mt-4">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              id="exampleInputEmail"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-success mt-4"
+          >
+            <span>Submit & Start Game</span>
+          </button>
+        </form>
+      </div>
+      <div class="col-12 col-md-6 mt-4">
+        <h4 class="mt-3"><b>Rules</b></h4>
+        <div class="card py-5 px-2 mb-3 mt-4">
+          <ul>
+            <li>The treasure hunt starts at 11 am till 7 pm.</li>
+            <br />
+            <li>
+              The one who solves the last clue first will be the winner of the
+              treasure hunt. He/she may also have to explain the solving of the
+              rest of the clues later.
+            </li>
+            <br />
+            <li>
+              If more than one person solves the final answer, then the winner
+              will be the one who solves the answer first.
+            </li>
+            <br />
+            <li>
+              If no one solves the entire treasure hunt, the current progress of
+              each participant will be considered for evaluation.
+            </li>
+            <br />
+            <li>
+              All answers must be in small letters with no space or special
+              characters.<br />
+              For example: If the answer is WhatsApp Messenger, type in
+              whatsappmessenger.
+            </li>
+            <br />
+            <li>
+              Enter the full name of any person.<br />
+              For example: If the answer is Neil Alden Armstrong, type in
+              neilaldenarmstrong.
+            </li>
+            <br />
+            <li>
+              Enter the full name of any organization/product.<br />
+              For example: If the answer is Meet, type in googlemeet.
+            </li>
+            <br />
+            <li>
+              Hints for every level will be posted on the Official
+              <a href="https://instagram.com/ieeeajcesb"><b>Instagram</b></a>
+              Page.
+            </li>
+            <br />
+            <li>
+              The decision of the organizing committee is final and binding.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

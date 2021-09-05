@@ -19,7 +19,7 @@ exports.getAllUsers = async function (req, res) {
 
 exports.getUser = async function (req, res) {
   await users
-    .findOne({ rollNumber: req.params.rollNumber },(err, user)=>{
+    .findOne({ uId: req.params.uId },(err, user)=>{
       if(user){
         if(user.password === req.body.password){
           res.send({message: "Login Successful", user: user});
