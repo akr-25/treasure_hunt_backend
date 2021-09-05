@@ -9,7 +9,7 @@ function changeHandler() {
 document.getElementById("submitButton").addEventListener("click", (e) => {
     e.preventDefault();
     console.log(ans, level)
-    if (ans === answers[parseInt(level)])
+    if (ans.toLowerCase() === answers[parseInt(level)].toLowerCase())
        { console.log(true)
         switch (parseInt(level)) {
             case 0:

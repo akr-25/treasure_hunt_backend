@@ -108,7 +108,7 @@ app.use("/final", isLoggedin, (req, res) => {
 app.use("/api/health", isLoggedin, healthRouter);
 app.use("/api/questions", isLoggedin, questionRouter);
 app.use("/api/answer", isLoggedin, answerRouter);
-app.use("/api/users", isLoggedin, userRouter);
+app.use("/api/users", userRouter);
 app.use("/api/leaderboard", isLoggedin, leaderBoardRouter);
 app.use("/api/mastermind", isLoggedin, mastermindRoute)
 app.use("/api/sixteen", isLoggedin, sixteenRouter)

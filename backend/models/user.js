@@ -39,6 +39,22 @@ const userSchema = new mongoose.Schema({
       totalScore:  Number,
     }
   ],
+  mastermind: {
+    type: Boolean,
+    default: false,
+  },
+  sixteen: {
+    type: Boolean,
+    default: false,
+  },
+  crossword: {
+    type: Boolean,
+    default: false,
+  },
+  mysteryroom: {
+    type: Boolean,
+    default: false,
+  },
   mastermindScore: mastermindScoreSchema,
   sixteenScore: sixteenScoreSchema,
   crosswordScore: {
