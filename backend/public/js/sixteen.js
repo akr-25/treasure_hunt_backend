@@ -154,7 +154,7 @@ class Puzzle {
       return true;
      }
      if (this.started && check()) {
-      document.getElementById("done").style.visibility = "visible";
+      document.getElementById("done").style.visibility = "hidden";
       Clock.pause();
       const minuteTaken =document.getElementById("min").innerHTML;
       const secondTaken = document.getElementById("sec").innerHTML;

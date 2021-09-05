@@ -415,7 +415,7 @@
     document.getElementById("submitrandomize").addEventListener('click', () => {
         console.log(locker1, locker2, locker3, locker4, locker5,h1,h2, h3, h4, h5);
 		
-        jsonanswer = {'hint1':h1,'hint2':h2,'hint3':h3,'hint4':h4,'hint5':h5,'locker1':locker1,'locker2':locker2,'locker3':locker3,'locker4':locker4,'locker5':locker5}
+        jsonanswer = {'hint1':h1,'hint2':h2,'hint3':h3,'hint4':h4,'hint5':h5,'locker1':localStorage.getItem("locker1"),'locker2':localStorage.getItem("locker2"),'locker3':localStorage.getItem("locker3"),'locker4':localStorage.getItem("locker4"),'locker5': localStorage.getItem("locker5")}
 		
             $.ajax({
                 type: "POST",
@@ -530,15 +530,17 @@
     var submit1 = document.getElementById("locker1q1submit");
     submit1.onclick = function () {
         var locker1ans1 = document.getElementById("locker1q1").value;
-        if (locker1ans1 == 2) {
+        if (parseInt(locker1ans1) === 2) {
         	locker1 = 2;
+            localStorage.setItem("locker1", 2)
             // modal9.style.display = "block";
             // $('#locker_close2').on('click', () => {
             //     modal9.style.display = "none";
             // });
-        } else {
-            alert("wrong answer");
-        }
+            alert("congrats you are out of the room")
+					} else {
+	            alert("wrong answer");
+	        }
 
     }
 
@@ -549,16 +551,17 @@
     var submit2 = document.getElementById("cabinetq1submit");
     submit2.onclick = function () {
         var cabinetans1 = document.getElementById("cabinetq1").value;
-        if (cabinetans1 == "CUP") {
-        	locker4 = "CUP";
+        if (cabinetans1.toLowerCase() == "cup") {
+        	locker4 = "cup";
+            localStorage.setItem("locker4", "cup")
             // modal10.style.display = "block";
             // $('#cabinet_close1').on('click', () => {
             //     modal10.style.display = "none";
             // });
-
-        } else {
-            alert("wrong answer");
-        }
+                alert("congrats you are out of the room")
+					} else {
+	            alert("wrong answer");
+	        }
 
     }
     // var modal12 = document.getElementById("cabinetmodal3")
@@ -584,10 +587,12 @@
         var locker2ans1 = document.getElementById("locker2q1").value;
         if (locker2ans1 == 56) {
         	locker2 = 56;
+            localStorage.setItem("locker2", 56)
             // modal11.style.display = "block";
             // $('#locker_close4').on('click', () => {
             //     modal11.style.display = "none";
             // });
+			alert("congrats you are out of the room")
 					} else {
 	            alert("wrong answer");
 	        }
@@ -599,6 +604,7 @@
         var finalans = document.getElementById("doorq1").value;
         if (finalans == "0") {
         	locker3 = "0";
+            localStorage.setItem("locker3", 0);
             alert("congrats you are out of the room")
 					} else {
 	            alert("wrong answer");
