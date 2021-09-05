@@ -11,7 +11,7 @@ router.route("/").post( async (req, res) => {
         mastermindScore: {
             score: req.body.mastermind_solver
         },
-        mastermind = true
+        mastermind: true
     })
     }
     res.status(200).send("submitted")

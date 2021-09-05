@@ -10,7 +10,7 @@ router.route("/").post(async (req, res) => {
         crosswordScore: {
             submittedCrossword: req.body.submittedCrossword
         },
-        crossword = true,
+        crossword: true,
     })
     }
     res.status(200).send("submitted")

@@ -72,8 +72,9 @@ app.use("/home", (req, res) => {
   res.render("home.ejs")
 })
 // app.use("/signin", (req, res) => {
-//   res.render()
-// })
+  //   res.render()
+  // })
+
 app.use("/game1", isLoggedin, (req, res) => {
   res.render("game1.ejs")
 })
@@ -104,7 +105,6 @@ app.use("/final", isLoggedin, (req, res) => {
 
 
 
-
 app.use("/api/health", isLoggedin, healthRouter);
 app.use("/api/questions", isLoggedin, questionRouter);
 app.use("/api/answer", isLoggedin, answerRouter);
@@ -115,6 +115,10 @@ app.use("/api/sixteen", isLoggedin, sixteenRouter)
 app.use("/api/crossword", isLoggedin, crosswordRouter)
 app.use("/api/mysteryroom", isLoggedin, mysteryroomRouter)
 app.use("/api/*", rootRouter);
+
+  app.use("/" , (req, res) => {
+    res.redirect("/signin")
+  })
 
 dotenv.config({ path: "./config.env" });
 
