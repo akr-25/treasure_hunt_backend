@@ -13,16 +13,16 @@ document.getElementById("submitButton").addEventListener("click", (e) => {
        { console.log(true)
         switch (parseInt(level)) {
             case 0:
-                window.location.replace("http://localhost:8080/mastermind") 
+                window.location.replace("/mastermind") 
                 break;
             case 1:
-                window.location.replace("http://localhost:8080/sixteen")
+                window.location.replace("/sixteen")
                 break;
             case 2:
-                window.location.replace("http://localhost:8080/crossword")
+                window.location.replace("/crossword")
                 break;
             case 3:
-                window.location.replace("http://localhost:8080/mysteryroom")
+                window.location.replace("/mysteryroom")
                 break;
             default:
                 break;

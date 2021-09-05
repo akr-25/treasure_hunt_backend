@@ -419,7 +419,7 @@
 		
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/api/mysteryroom",
+                url: "/api/mysteryroom",
                 data: {
                     'JSONanswer':JSON.stringify(jsonanswer),
                     csrfmiddlewaretoken: '{{ csrf_token }}',
