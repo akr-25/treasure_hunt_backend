@@ -531,7 +531,7 @@
 
             <button type="button" id="submit" class="green1" style="margin-left: 10%;margin-top: 12%; color: #333;">SUBMIT</button>
             <button type="button" class="green2" style="margin-left: 40%;margin-top: 12%; color: #333;"><a
-                    href="{% url 'thirdyear' %}">SKIP</a></button>
+                    href="http://localhost:8080/game2">SKIP</a></button>
 
 
             <!-- <button type="button" id="newGame" class="green" style="margin-left: 40%;margin-top: 12%;"><a
@@ -591,10 +591,9 @@
         //         k++;
         //     }
         // console.log(submittedCrossword);
-
         $.ajax({
             type: "POST",
-            url: "{%url 'mastermind_submission' %}",
+            url: "http://localhost:8080/api/mastermind",
             data: {
                 'mastermind_solver': score,
                 csrfmiddlewaretoken: '{{ csrf_token }}',
@@ -602,9 +601,10 @@
             dataType: 'json',
             success: function (data) {
                 alert("Your response have been submitted");
-                window.location.href = "{% url 'thirdyear' %}"
+                // window.location.href = "http://localhost:8080/game2"
             }
         });
+        window.location.replace("http://localhost:8080/game2")
     });
 
 </script>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,25 +23,29 @@ h3 {
               ><i>Level 3</i></b
             >
           </h3>
-          <img
-            src="./images/clue3.jpg"
+          <!-- <img
+            src="./images/clue1.jpg"
             class="mx-auto"
             style="width: 100%"
             :alt="`#${level}`"
-          />
+          /> -->
+          <p class="text-">.-.. .- -.- . / ... . .-. .--. . -. - .. -. .</p>
           <div class="card-body">
             <p class="card-text">
-              Questions come here
+              If you are lucky , you might meet the Director on one of his walks here. 
+Identify the place 
+
             </p>
-            <form class="form-inline" >
+            <!-- <form class="form-inline"> -->
               <div class="form-group mb-2">
                 <label for="validationServer01" class="sr-only">Answer</label>
                 <input
                   type="text"
+                  id="inputanswer"
                   class="form-control"
                   placeholder="Enter your Answer"
                   required
-                  v-model="answer"
+                  onchange="changeHandler()"
                   />
                   <!-- <div>
                   readonly="isAnswerCorrect"
@@ -49,26 +54,23 @@ h3 {
                 </div> -->
               </div>
               <button
-                v-if="!isAnswerCorrect"
-                type="submit"
+                id="submitButton"
                 class="btn mb-2"
                 style="background-color: #f59800"
               >
+                <p id="level" style="display: none;">2</p>
                 </span>
                 <span class="sr-only">Verify Answer</span>
               </button>
-              <button submit="" class="btn btn-success mb-2">
+              <!-- <button  class="btn btn-success mb-2">
                 Play Next Level
-              </button>
-            </form>
+              </button> -->
+            <!-- </form> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-<script>
-    // var doc
-
-</script>
+<script src="http://localhost:8080/answerChecker.js"></script>
 </html>

@@ -1,6 +1,6 @@
 // const answer = require("../index.js")
 // import {answer} from "index.js"
-const answers = ["answer1", "answer2", "answer3", "answer4"];
+const answers = ["Kapili Hostel", "Lecture Hall", "Lake Serpentine", "Cricket Field"];
 var level = document.getElementById("level").innerHTML;
 var ans;
 function changeHandler() {
@@ -8,21 +8,25 @@ function changeHandler() {
 }
 document.getElementById("submitButton").addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(ans)
-    if (ans === answers[level])
-        switch (level) {
+    console.log(ans, level)
+    if (ans === answers[parseInt(level)])
+       { console.log(true)
+        switch (parseInt(level)) {
             case 0:
-                window.location.href = "http://localhost:8080/mastermind" 
+                window.location.replace("http://localhost:8080/mastermind") 
                 break;
             case 1:
-                windown.location.href = "http://localhost:8080/sixteen"
+                window.location.replace("http://localhost:8080/sixteen")
+                break;
             case 2:
-                window.location.href = "http://localhost:8080/crossword"
+                window.location.replace("http://localhost:8080/crossword")
+                break;
             case 3:
-                window.location.href = "http://localhost:8080/mysteryroom"
+                window.location.replace("http://localhost:8080/mysteryroom")
+                break;
             default:
                 break;
-        }
+        }}
     else
         alert("Wrong answer,please try again !!")
 })

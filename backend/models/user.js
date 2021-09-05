@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const mastermindScoreSchema = require("./mastermind")
+const sixteenScoreSchema = require("./sixteen");
 
 const userSchema = new mongoose.Schema({
   // rollNumber:{
@@ -38,7 +39,14 @@ const userSchema = new mongoose.Schema({
       totalScore:  Number,
     }
   ],
-  // mastermindScore: mastermindScoreSchema
+  mastermindScore: mastermindScoreSchema,
+  sixteenScore: sixteenScoreSchema,
+  crosswordScore: {
+    submittedCrossword: String
+  },
+  mysteryroomScore: {
+    answer: String
+  }
 });
 
 const users = mongoose.model("users", userSchema);

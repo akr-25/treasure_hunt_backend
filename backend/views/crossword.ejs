@@ -265,7 +265,7 @@ as 123456789 where 1,2,3,4,5,6,7,8,9 have to be replaced by alphabets.<br>
     // console.log(submittedCrossword);
     $.ajax({
               type: "POST",
-              url: "/ans",
+              url: "/api/crossword",
               data: {
                 'submittedCrossword': JSON.stringify(submittedCrossword), csrfmiddlewaretoken: '{{ csrf_token }}',
                 // 'puzzle_score': puzzle_score,
@@ -279,6 +279,7 @@ as 123456789 where 1,2,3,4,5,6,7,8,9 have to be replaced by alphabets.<br>
                 alert("Your response have been subitted");
               }
           });
+          window.location.href = "http://localhost:8080/game4"
   });
 
   </script>

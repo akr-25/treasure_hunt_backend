@@ -130,7 +130,8 @@
 	        <div class="modal-content">
 	            <span id="cubboard_close">&times;</span>
 	            <div class="modal-body">
-	                <form action="/cabinet1" method="post">
+	                <form>
+                        <!--  action="/cabinet1" method="post" -->
 	                    <div class="form-group">
 	                        <label for="formGroupExampleInput">Alpha and Beta were reading about some special sequence where each number of the sequence can be obtained by summing the previous two numbers. They searched for who the creator of this amazing sequence was, and found that the creator was an Italian mathematician. They were sad since they thought that it would be their favourite mathematician X, the one who invented zero. They then came across a group of words
 																															and thought to find an odd one out of them.
@@ -140,7 +141,7 @@
 	                        <input type="text" class="form-control" id="cabinetq1" placeholder="Enter Answer" name="cq1">
 	                    </div>
 											<div class="modal-footer">
-					                <button type="submit" class="btn btn-primary" id="cabinetq1submit">save answer</button>
+					                <button class="btn btn-primary" id="cabinetq1submit">save answer</button>
 					            </div>
 	                </form>
 	            </div>
@@ -157,7 +158,8 @@
             <div class="modal-content">
                 <span id="door_close">&times;</span>
                 <div class="modal-body">
-                    <form action="/door1" method="post">
+                    <form>
+                         <!-- action="/door1" method="post" -->
                         <div class="form-group">
                             <label for="formGroupExampleInput">Even after solving the puzzle correctly the other members of the friend circle aren’t convinced and hence they decide to give both of you another puzzle. Both of you have in total the number of coins which is the answer to the ‘snake and ladder’ puzzle. Now Gamma thinks of a 100 degree polynomial(p(x)) whose coefficients are all natural numbers. You have to guess all the coefficients of the polynomial.
 																															You can give 1 coin to gamma and a whole number ‘z’ and gamma will give you the value of p(z). You can borrow extra coins from your good friend delta but you would like to borrow as few as possible. How many extra coins would you have to borrow(except the coins you already have) to correctly guess all the coefficients of the polynomial.
@@ -166,7 +168,7 @@
                             <input type="text" class="form-control" id="doorq1" placeholder="Enter Answer" name="dq1">
                         </div>
 												<div class="modal-footer">
-				                    <button type="submit" class="btn btn-primary" id="doorq1submit">save answer</button>
+				                    <button class="btn btn-primary" id="doorq1submit">save answer</button>
 				                    <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
 				                </div>
                     </form>
@@ -184,8 +186,8 @@
             <div class="modal-content">
                 <span id="locker_close1">&times;</span>
                 <div class="modal-body">
-                    <form action="/locker1" method="post">
-
+                    <form>
+                         <!-- action="/locker1" method="post" -->
                         <div class="form-group">
                             <label for="formGroupExampleInput"> Since Alpha and Beta disrespected the great mathematician X previously, by not following him, their friend Gamma removed them from their circle of friends in a moment of anger but he later felt that Alpha and Beta can be given another chance to prove themselves. He took out a standard snakes and ladders game and told them that he can finish this game in ‘a’ moves where ‘a’ is the unit’s place of the number ‘y’ they had 					 calculated in the previous question.
 																				He asks them if there is a way where they can finish the game in ‘b’ moves where ‘b’ is the digit at the ten’s place of their answer in the previous question and if yes in how many ways can they do it.<br>
@@ -195,7 +197,7 @@
                             <input type="text" class="form-control" id="locker1q1" value="" placeholder="Enter Answer" name="l1q1">
                         </div>
 												<div class="modal-footer">
-				                    <button type="submit" class="btn btn-primary" id="locker1q1submit">save answer</button>
+				                    <button class="btn btn-primary" id="locker1q1submit">save answer</button>
 
 				                </div>
                     </form>
@@ -213,8 +215,8 @@
             <div class="modal-content">
                 <span id="locker_close3">&times;</span>
                 <div class="modal-body">
-                    <form action="/locker2" method="post">
-
+                    <form >
+<!-- action="/locker2" method="post" -->
                         <div class="form-group">
                             <label for="formGroupExampleInput"> Alpha and Beta hated odd things and wanted to make amends. They took the odd word from above and created ‘x' new words which would have fit the pattern with the other words given but each new word has only one character different from the original word. They then had a closer look at those newly created words and specifically wrote down the new characters in those words (the characters which were different from the original word). Then they added all those characters' numerical value, considering A as 1, B as 2 and so on, and subtracted ‘x' from it. Find out the answer they might have received and consider it as ‘y’.<br>
 															*Note:-  The newly formed words may not be meaningful words.
@@ -223,7 +225,7 @@
                             <input type="text" class="form-control" id="locker2q1" placeholder="Enter Answer" name="l2q1">
                         </div>
 												<div class="modal-footer">
-				                    <button type="submit" class="btn btn-primary" id="locker2q1submit">Save answer</button>
+				                    <button class="btn btn-primary" id="locker2q1submit">Save answer</button>
 				                </div>
                     </form>
                 </div>
@@ -371,7 +373,7 @@
             </div>
 
        	</div>
-           <button type="button" id="submit" style="position: fixed; bottom: 2%; right: 3%">Submit</button>
+           <button type="button" id="submitrandomize" style="position: fixed; bottom: 2%; right: 3%">Submit</button>
            <!-- <button type="button" onclick="window.location = '../graduation'" id="submit" style="position: fixed; bottom: 2%; right: 9%">Skip</button> -->
            <div class="header-right" id="painting10_final" style="position: fixed; bottom: 2%; right: 13%">
                 <a class="active">Rules</a>
@@ -409,6 +411,27 @@
 
 
 <script>
+     var jsonanswer = new Object();
+    document.getElementById("submitrandomize").addEventListener('click', () => {
+        console.log(locker1, locker2, locker3, locker4, locker5,h1,h2, h3, h4, h5);
+		
+        jsonanswer = {'hint1':h1,'hint2':h2,'hint3':h3,'hint4':h4,'hint5':h5,'locker1':locker1,'locker2':locker2,'locker3':locker3,'locker4':locker4,'locker5':locker5}
+		
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/mysteryroom",
+                data: {
+                    'JSONanswer':JSON.stringify(jsonanswer),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert("Your response have been submitted");
+                }
+            });
+            window.location.replace('/final');
+        },
+    );
 	var locker1 = "Not_answered";
     var locker2 = "Not_answered";
     var locker3 = "Not_answered";
@@ -617,27 +640,7 @@
         alert("You must have seen a black jack 21 statement somewhere . Also there are 26 cards , ace means 1 and face means 10 . Think about what other common set has 26 elements , and keep in mind that the sum MUST be 21 .");
     }
 		//
-    // var jsonanswer = new Object();
-    // $('#submit').on('click', () => {
-    //     console.log(locker1, locker2, locker3, locker4, locker5,h1,h2, h3, h4, h5);
-		//
-    //     jsonanswer = {'hint1':h1,'hint2':h2,'hint3':h3,'hint4':h4,'hint5':h5,'locker1':locker1,'locker2':locker2,'locker3':locker3,'locker4':locker4,'locker5':locker5}
-		//
-    //         $.ajax({
-    //             type: "POST",
-    //             url: "{%url 'mysteryroom_submission' %}",
-    //             data: {
-    //                 'JSONanswer':JSON.stringify(jsonanswer),
-    //                 csrfmiddlewaretoken: '{{ csrf_token }}',
-    //             },
-    //             dataType: 'json',
-    //             success: function (data) {
-    //                 alert("Your response have been submitted");
-    //                 window.location.href = '/graduation'
-    //             }
-    //         });
-    //     }
-    // );
+   
 </script>
 
 

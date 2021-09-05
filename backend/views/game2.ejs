@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,25 +23,26 @@ h3 {
               ><i>Level 2</i></b
             >
           </h3>
-          <img
+          <!-- <img
             src="./images/clue2.jpg"
             class="mx-auto"
             style="width: 100%"
             :alt="`#${level}`"
-          />
+          /> -->
           <div class="card-body">
             <p class="card-text">
-              Questions come here
+             Your location is the place where you can even prelogism your own terms like FARHANITRATE and PRERAJULISATION and which is not something less than hell for the sleepyheads.
             </p>
-            <form class="form-inline" >
+            <!-- <form class="form-inline"> -->
               <div class="form-group mb-2">
                 <label for="validationServer01" class="sr-only">Answer</label>
                 <input
                   type="text"
+                  id="inputanswer"
                   class="form-control"
                   placeholder="Enter your Answer"
                   required
-                  v-model="answer"
+                  onchange="changeHandler()"
                   />
                   <!-- <div>
                   readonly="isAnswerCorrect"
@@ -49,26 +51,23 @@ h3 {
                 </div> -->
               </div>
               <button
-                v-if="!isAnswerCorrect"
-                type="submit"
+                id="submitButton"
                 class="btn mb-2"
                 style="background-color: #f59800"
               >
+                <p id="level" style="display: none;">1</p>
                 </span>
                 <span class="sr-only">Verify Answer</span>
               </button>
-              <button submit="" class="btn btn-success mb-2">
+              <!-- <button  class="btn btn-success mb-2">
                 Play Next Level
-              </button>
-            </form>
+              </button> -->
+            <!-- </form> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-<script>
-    // var doc
-
-</script>
+<script src="http://localhost:8080/answerChecker.js"></script>
 </html>
